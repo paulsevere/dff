@@ -15,8 +15,6 @@
 package cmd
 
 import (
-	"strings"
-
 	"github.com/spf13/cobra"
 	. "gitlab.com/paulsevere/dff/pkg/pipeline"
 	"gitlab.com/paulsevere/dff/pkg/services"
@@ -38,7 +36,7 @@ to quickly create a Cobra application.`,
 			iArgs[n] = i
 		}
 
-		outPipe := Pipeline(LiftString(services.ByName), LiftString(strings.ToUpper))(iArgs...)
+		outPipe := Pipeline(LiftString(services.ByName))(iArgs...)
 		srvId := outPipe[0].(string)
 		// srvId := services.ByName(args[0])
 		println(srvId)
